@@ -1,0 +1,16 @@
+.formLogin {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+.infoLogin {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 20px;
+}
+
+.infoLogin h2, .infoLogin p {
+  margin: 0;
+}

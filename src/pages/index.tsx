@@ -1,3 +1,5 @@
+import HomePage from '@/components/views/HomePage'
+
 export default function Index() {
-  return <div>Bem vindo</div>
+  return <HomePage />
 }

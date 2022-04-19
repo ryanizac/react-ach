@@ -1,0 +1,12 @@
+.template {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 400px;
+  width: 500px;
+  padding: 40px 0;
+  background: #3dc4d8;
+  color: white;
+}
