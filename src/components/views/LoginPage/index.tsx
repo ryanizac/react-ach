@@ -1,20 +1,22 @@
+import { useUserContext } from '@/contexts/UserContext'
 import { FormEvent, useState } from 'react'
 import styles from './styles.module.css'
 
 export default function LoginPage() {
   const [email, setEmail] = useState<string>('ryan@gmail.com')
   const [password, setPassword] = useState<string>('1234')
-  const isLogged = false
+  const { user, options } = useUserContext()
 
   async function handle(e: FormEvent<HTMLFormElement>) {
     e.preventDefault()
     const auth = { email, password }
-    console.log(auth)
+    const res = await options.login(auth)
+    console.log(res)
   }
 
   return (
     <div>
-      {isLogged ? (
+      {!user.isLogged ? (
         <>
           <h2>login</h2>
           <form onSubmit={handle} className={styles.formLogin}>
@@ -37,9 +39,9 @@ export default function LoginPage() {
         </>
       ) : (
         <div className={styles.infoLogin}>
-          <h2>Você está logado(a)!</h2>
+          <h2>Você está logado(a), {user.name}!</h2>
           <p>Clique abaixo para deslogar</p>
-          <button onClick={() => {}}>Deslogar</button>
+          <button onClick={() => options.logout()}>Deslogar</button>
         </div>
       )}
     </div>

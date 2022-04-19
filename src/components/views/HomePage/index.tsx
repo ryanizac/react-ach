@@ -1,3 +1,11 @@
+import { useUserContext } from '@/contexts/UserContext'
+
 export default function HomePage() {
-  return <h1>Você ainda não fez login</h1>
+  const { user } = useUserContext()
+
+  return (
+    <h1>
+      {user.isLogged ? `bem vindo, ${user.name}!` : 'Você ainda não fez login'}
+    </h1>
+  )
 }
