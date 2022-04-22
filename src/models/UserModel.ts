@@ -1,15 +1,17 @@
 import { IUser, IUserModel } from '@/types/User'
+import GenericModel from './GenericModel'
 
-export default class UserModel implements IUserModel {
-  name: string
+export default class UserModel extends GenericModel implements IUserModel {
   email: string
   password: string
+  name: string
   token: string
 
   constructor(user: IUser) {
-    this.name = user.name
+    super()
     this.email = user.email
     this.password = ''
+    this.name = user.name
     this.token = user.token
   }
 
